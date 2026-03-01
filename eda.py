@@ -5,7 +5,6 @@ from data_analysis.ner import plot_ner_comparison
 
 # Loading data
 pcl_df = load_pcl()
-test_df = load_test()
 
 # Separate raw text for each class
 pcl_texts = pcl_df[pcl_df["pcl"] == 1]["text"].dropna().reset_index(drop=True)
