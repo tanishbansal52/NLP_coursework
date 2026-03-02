@@ -12,10 +12,10 @@ from transformers import (
 from sklearn.metrics import classification_report, f1_score, precision_recall_fscore_support
 
 from data_analysis.preprocessing import mask_locations
+import os
 from huggingface_hub import login
-from dotenv import load_dotenv
 
-load_dotenv()
+HUGGINGFACE_TOKEN = os.getenv("HUGGINGFACE_TOKEN")
 login(token=HUGGINGFACE_TOKEN)
 
 MODEL_NAME = "microsoft/deberta-v3-base"
@@ -141,7 +141,7 @@ class PCLClassifier:
 
             for step, batch in enumerate(loader, 1):
                 out   = self._forward(batch)
-                loss  = loss_fn(out.logits, batch["labels"].to(self.device))
+                loss  = loss_fn(out.logits.float(), batch["labels"].to(self.device))
                 (loss / self.grad_accum).backward()
                 total_loss += loss.item()
 

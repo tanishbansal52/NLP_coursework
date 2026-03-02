@@ -9,8 +9,8 @@ CACHE_DIR = Path("cache")
 
 def _mask_single(text):
     try:
-        tokens  = word_tokenize(str(text))
-        tagged  = pos_tag(tokens)
+        tokens = word_tokenize(str(text))
+        tagged = pos_tag(tokens)
         chunked = ne_chunk(tagged, binary=False)
     except Exception:
         return text
@@ -32,20 +32,20 @@ def _mask_single(text):
 def mask_locations(texts):
     texts = list(texts)
 
-    key        = hashlib.md5("".join(texts).encode()).hexdigest()
+    key = hashlib.md5("".join(texts).encode()).hexdigest()
     CACHE_DIR.mkdir(exist_ok=True)
     cache_path = CACHE_DIR / f"masked_{key}.json"
 
     if cache_path.exists():
-        print(f"  loading masked texts from cache ({cache_path})")
+        print(f"loading masked texts from cache ({cache_path})")
         return json.loads(cache_path.read_text())
 
     results = []
     for i, text in enumerate(texts):
         results.append(_mask_single(text))
         if (i + 1) % 500 == 0:
-            print(f"  masked {i + 1}/{len(texts)}")
+            print(f"masked {i + 1}/{len(texts)}")
 
     cache_path.write_text(json.dumps(results))
-    print(f"  saved to cache ({cache_path})")
+    print(f"saved to cache ({cache_path})")
     return results
