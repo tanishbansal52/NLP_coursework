@@ -1,52 +1,43 @@
 import os
-import argparse
 from dotenv import load_dotenv
+from huggingface_hub import login
 
 load_dotenv()
+login(token=os.getenv("HUGGINGFACE_TOKEN"))
 
 from data_analysis.data_loader import load_training_set, load_validation_set
 from model.classifier import PCLClassifier
 
+# --- config ---
+EPOCHS     = 5
+LR         = 2e-5
+BATCH_SIZE = 16
+MASK_LOCS  = True
+EVAL_ONLY  = False
+OUTPUT_DIR = "checkpoints/deberta_pcl"
+# --------------
 
-def parse_args():
-    p = argparse.ArgumentParser()
-    p.add_argument("--epochs",     type=int,   default=5)
-    p.add_argument("--lr",         type=float, default=2e-5)
-    p.add_argument("--batch-size", type=int,   default=16)
-    p.add_argument("--no-mask",    action="store_true")
-    p.add_argument("--eval-only",  action="store_true")
-    p.add_argument("--output-dir", default="checkpoints/deberta_pcl")
-    return p.parse_args()
+print("loading train split...")
+train_df = load_training_set()
+print(f"  {len(train_df)} examples  (PCL={train_df['label'].sum()}, Non-PCL={(train_df['label']==0).sum()})")
 
+print("loading dev split...")
+dev_df = load_validation_set()
+print(f"  {len(dev_df)} examples  (PCL={dev_df['label'].sum()}, Non-PCL={(dev_df['label']==0).sum()})")
 
-def main():
-    args = parse_args()
+clf = PCLClassifier(
+    epochs=EPOCHS,
+    lr=LR,
+    batch_size=BATCH_SIZE,
+    mask_locs=MASK_LOCS,
+    output_dir=OUTPUT_DIR,
+)
 
-    print("loading train split...")
-    train_df = load_training_set()
-    print(f"  {len(train_df)} examples  (PCL={train_df['label'].sum()}, Non-PCL={(train_df['label']==0).sum()})")
+if EVAL_ONLY:
+    clf.load("best")
+else:
+    clf.fit(train_df["text"], train_df["label"], dev_df["text"], dev_df["label"])
+    clf.load("best")
 
-    print("loading dev split...")
-    dev_df = load_validation_set()
-    print(f"  {len(dev_df)} examples  (PCL={dev_df['label'].sum()}, Non-PCL={(dev_df['label']==0).sum()})")
-
-    clf = PCLClassifier(
-        epochs=args.epochs,
-        lr=args.lr,
-        batch_size=args.batch_size,
-        mask_locs=not args.no_mask,
-        output_dir=args.output_dir,
-    )
-
-    if args.eval_only:
-        clf.load("best")
-    else:
-        clf.fit(train_df["text"], train_df["label"], dev_df["text"], dev_df["label"])
-        clf.load("best")
-
-    print("\nfinal eval on dev set:")
-    clf.evaluate(dev_df["text"], dev_df["label"])
-
-
-if __name__ == "__main__":
-    main()
+print("\nfinal eval on dev set:")
+clf.evaluate(dev_df["text"], dev_df["label"])
