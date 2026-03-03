@@ -10,7 +10,7 @@ from model.classifier import PCLClassifier
 
 # --- config ---
 EPOCHS     = 5
-LR         = 2e-5
+LR         = 5e-6
 BATCH_SIZE = 16
 MASK_LOCS  = True
 EVAL_ONLY  = False

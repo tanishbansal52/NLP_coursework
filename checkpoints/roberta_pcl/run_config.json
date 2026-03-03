@@ -1,0 +1,11 @@
+{
+  "model_name": "roberta-base",
+  "epochs": 2,
+  "lr": 2e-05,
+  "batch_size": 16,
+  "mask_locs": true,
+  "target_ratio": 0.25,
+  "use_aug": true,
+  "patience": 2,
+  "threshold": 0.35
+}

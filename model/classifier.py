@@ -100,38 +100,61 @@ class PCLClassifier:
         return DataLoader(ds, batch_size=self.batch_size, shuffle=shuffle, num_workers=0)
 
     def _forward(self, batch):
+        token_type_ids = batch["token_type_ids"].to(self.device) if "token_type_ids" in batch else None
         return self.model(
-            input_ids = batch["input_ids"].to(self.device),
-            attention_mask = batch["attention_mask"].to(self.device),
-            token_type_ids = batch["token_type_ids"].to(self.device) if "token_type_ids" in batch else None,
+            input_ids=batch["input_ids"].to(self.device),
+            attention_mask=batch["attention_mask"].to(self.device),
+            token_type_ids=token_type_ids,
         )
 
     def fit(self, train_texts, train_labels, val_texts=None, val_labels=None):
         train_texts = self._preprocess(train_texts)
         train_labels = list(train_labels)
-        # Using weighted loss to address class imbalance
-        loss_fn = nn.CrossEntropyLoss(weight=self._class_weights(train_labels))
 
-        self.model = AutoModelForSequenceClassification.from_pretrained(self.model_name, num_labels=2)
+        self.model = AutoModelForSequenceClassification.from_pretrained(
+            self.model_name,
+            num_labels=2,
+            ignore_mismatched_sizes=True,
+            dtype=torch.float32,   # force fp32 — fp16 overflows with high class weights
+        )
         self.model.resize_token_embeddings(len(self.tokenizer))
+
+        # reinitialise new head with small weights
+        if hasattr(self.model, "classifier"):
+            nn.init.normal_(self.model.classifier.weight, std=0.02)
+            nn.init.zeros_(self.model.classifier.bias)
+        if hasattr(self.model, "pooler") and hasattr(self.model.pooler, "dense"):
+            nn.init.normal_(self.model.pooler.dense.weight, std=0.02)
+            nn.init.zeros_(self.model.pooler.dense.bias)
+
         self.model.to(self.device)
+
+        loss_fn = nn.CrossEntropyLoss(weight=self._class_weights(train_labels))
 
         loader = self._loader(train_texts, train_labels, shuffle=True)
         total_steps = (len(loader) // self.grad_accum) * self.epochs
         optimizer = torch.optim.AdamW(self.model.parameters(), lr=self.lr, weight_decay=0.01)
         scheduler = get_linear_schedule_with_warmup(optimizer, int(total_steps * 0.1), total_steps)
 
-        best_f1 = 0.0
+        best_f1 = -1.0
         history = []
 
         for epoch in range(1, self.epochs + 1):
             self.model.train()
             total_loss = 0.0
+            nan_steps = 0
             optimizer.zero_grad()
 
             for step, batch in enumerate(loader, 1):
+                # NO autocast — keep everything fp32 to avoid overflow
                 out = self._forward(batch)
                 loss = loss_fn(out.logits.float(), batch["labels"].to(self.device))
+
+                if torch.isnan(loss) or torch.isinf(loss):
+                    nan_steps += 1
+                    optimizer.zero_grad()
+                    continue
+
                 (loss / self.grad_accum).backward()
                 total_loss += loss.item()
 
@@ -140,6 +163,9 @@ class PCLClassifier:
                     optimizer.step()
                     scheduler.step()
                     optimizer.zero_grad()
+
+            if nan_steps:
+                print(f"  WARNING: skipped {nan_steps}/{len(loader)} NaN steps")
 
             avg_loss = total_loss / len(loader)
             epoch_info = {"epoch": epoch, "train_loss": round(avg_loss, 4)}
@@ -198,14 +224,14 @@ class PCLClassifier:
 
     def _save(self, tag):
         path = self.output_dir / tag
-        self.model.save_pretrained(path)
-        self.tokenizer.save_pretrained(path)
+        self.model.save_pretrained(str(path))
+        self.tokenizer.save_pretrained(str(path))
         print(f"saved -> {path}")
 
     def load(self, tag="best"):
         path = self.output_dir / tag
-        self.tokenizer = AutoTokenizer.from_pretrained(path)
-        self.model = AutoModelForSequenceClassification.from_pretrained(path)
+        self.tokenizer = AutoTokenizer.from_pretrained(str(path))
+        self.model = AutoModelForSequenceClassification.from_pretrained(str(path))
         self.model.to(self.device)
         self.model.eval()
         print(f"loaded from {path}")
