@@ -5,6 +5,9 @@ from torch import nn
 from transformers import AutoModelForSequenceClassification, get_linear_schedule_with_warmup
 from sklearn.metrics import classification_report, f1_score, precision_recall_fscore_support
 
+import os, sys
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
 from model.classifier import PCLClassifier
 from data_analysis.augmentation import augment_minority, oversample_minority
 

@@ -1,28 +1,32 @@
 import os
+import sys
 import json
 from dotenv import load_dotenv
 from huggingface_hub import login
+
+# ensure project root is on the path regardless of where this script is run from
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 load_dotenv()
 login(token=os.getenv("HUGGINGFACE_TOKEN"))
 
 from data_analysis.data_loader import load_training_set, load_validation_set
-from model.roberta_classifier import RobertaPCLClassifier
+from BestModel.roberta_classifier import RobertaPCLClassifier
 
 # --- config ---
-EPOCHS          = 3            # We know it peaks early, don't waste time on 4
-LR              = 1.5e-5       # Slightly higher learning rate to explore better minima
+EPOCHS          = 3
+LR              = 1.5e-5
 BATCH_SIZE      = 16
 MASK_LOCS       = True
-TARGET_RATIO    = 0.30         # Higher ratio! (Make the dataset ~30% PCL)
-USE_AUG         = False        # IMPORTANT: Turn OFF synonym replacement!
-EVAL_ONLY       = True
-OUTPUT_DIR      = "checkpoints/roberta_pcl_oversample" # Save to a new folder!
+TARGET_RATIO    = 0.30
+USE_AUG         = False
+EVAL_ONLY       = False
+OUTPUT_DIR      = "checkpoints/roberta_pcl"
 MODEL_NAME      = "roberta-base"
 PATIENCE        = 2
-THRESHOLD       = 0.30         # Start evaluating at 0.30
-USE_CHECKPOINT  = False        # START FRESH
-LAST_EPOCH      = 1            # No checkpoint to load, start at epoch 0
+THRESHOLD       = 0.30
+USE_CHECKPOINT  = False
+LAST_EPOCH      = 1
 # --------------
 
 print("loading train split...")
