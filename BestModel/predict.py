@@ -1,11 +1,3 @@
-"""
-Exercise 5.1 – Global Evaluation
-Generates dev.txt and test.txt for submission.
-
-Usage:
-    python BestModel/predict.py
-"""
-
 import os
 import sys
 
