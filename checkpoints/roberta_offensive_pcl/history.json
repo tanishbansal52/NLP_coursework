@@ -1,0 +1,18 @@
+[
+  {
+    "epoch": 4,
+    "train_loss": 0.0369,
+    "f1_pcl": 0.5157,
+    "precision_pcl": 0.5362,
+    "recall_pcl": 0.4966,
+    "f1_macro": 0.74
+  },
+  {
+    "epoch": 5,
+    "train_loss": 0.0154,
+    "f1_pcl": 0.5274,
+    "precision_pcl": 0.5385,
+    "recall_pcl": 0.5168,
+    "f1_macro": 0.746
+  }
+]

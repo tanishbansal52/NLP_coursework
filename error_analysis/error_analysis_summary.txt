@@ -1,0 +1,100 @@
+
+Model : roberta-base  (threshold=0.35)
+Dataset: official dev split  (2093 examples,
+         PCL=149, Non-PCL=1944)
+
+════════════════════════════════════════
+ Overall Performance
+════════════════════════════════════════
+              precision    recall  f1-score   support
+
+     Non-PCL     0.9677    0.9558    0.9617      1944
+         PCL     0.5029    0.5839    0.5404       149
+
+    accuracy                         0.9293      2093
+   macro avg     0.7353    0.7698    0.7510      2093
+weighted avg     0.9346    0.9293    0.9317      2093
+
+  F1-PCL  = 0.5404
+  F1-macro= 0.7510
+  AP      = 0.5106
+
+  |         | Pred Non-PCL | Pred PCL |
+  |---------|-------------|---------|
+  | True Non-PCL |     1858   |     86  |
+  | True PCL     |       62   |     87  |
+
+════════════════════════════════════════
+ Error Breakdown
+════════════════════════════════════════
+  True Positives  (TP) : 87
+  False Positives (FP) : 86   ← Non-PCL misclassified as PCL
+  False Negatives (FN) : 62   ← PCL missed by the model
+  True Negatives  (TN) : 1858
+
+  Error rate (all errors): 0.071
+  Precision: 0.5029
+  Recall   : 0.5839
+
+════════════════════════════════════════
+ High-Confidence Errors
+════════════════════════════════════════
+  High-confidence FP (prob ≥ 0.70): 68
+  High-confidence FN (prob ≤ 0.20): 59
+
+- Top 3 High-confidence False Positives -
+  [1] prob=0.992  kw=in-need  country=tz
+      "Fasting bridges the gap between rich and poor , sustained and impoverished , fulfilled and needy . This experience should then inspire compassion and mercy , which is manifest by generosity of wealth ..."
+  [2] prob=0.990  kw=in-need  country=za
+      "Adopt a Mission serves as a platform for the church and for likeminded people to reach out to unemployed families in the communities -- whoever is in need . " <h> The forgotten people of Brooklyn..."
+  [3] prob=0.989  kw=hopeless  country=ph
+      "But more than taking personal strength from the heroines of Philippine culture , Alma finds greater inspiration in being able to share her skills to build on the dreams of women and children , " I loo..."
+
+- Top 3 High-confidence False Negatives -
+  [1] prob=0.001  kw=migrant  country=pk
+      "Famously progressive San Francisco has among America 's most eco-friendly public policies and has declared itself a sanctuary to immigrants it considers persecuted by President Donald Trump 's adminis..."
+  [2] prob=0.001  kw=vulnerable  country=ng
+      "He said : " I think we can consider introducing a negligible telecom surcharge to be entirely borne by the initiator of a call . In order to protect the poor and vulnerable amongst us , we could struc..."
+  [3] prob=0.001  kw=disabled  country=us
+      "Krueger recently harnessed that creativity to self-publish a book featuring the poems , artwork , photography and short stories of 16 ill or disabled artists from around the world . She hopes the book..."
+
+════════════════════════════════════════
+ Keyword-Level Analysis
+════════════════════════════════════════
+ ↓ Worst 5 keywords by F1-PCL:
+   immigrant             n= 218  prev=0.03  F1=0.2857  FP=0.000  FN=0.833
+   refugee               n= 188  prev=0.04  F1=0.4000  FP=0.044  FN=0.500
+   vulnerable            n= 209  prev=0.07  F1=0.4667  FP=0.046  FN=0.500
+   women                 n= 233  prev=0.04  F1=0.4762  FP=0.027  FN=0.500
+   hopeless              n= 217  prev=0.12  F1=0.5085  FP=0.099  FN=0.400
+
+ ↑ Best 5 keywords by F1-PCL:
+   disabled              n= 194  prev=0.05  F1=0.5714  FP=0.027  FN=0.400
+   poor-families         n= 190  prev=0.15  F1=0.5763  FP=0.081  FN=0.414
+   homeless              n= 212  prev=0.10  F1=0.5833  FP=0.068  FN=0.333
+   in-need               n= 226  prev=0.09  F1=0.6122  FP=0.063  FN=0.286
+   migrant               n= 206  prev=0.02  F1=0.7500  FP=0.000  FN=0.400
+
+════════════════════════════════════════
+ Text-Length Analysis
+════════════════════════════════════════
+ Bin           |  n   | F1-PCL | PCL-rate | FP  | FN
+ <30           |   560| 0.5763 | 0.048    |  15 |  10
+ 30-60         |  1052| 0.5270 | 0.066    |  40 |  30
+ 60-100        |   381| 0.5000 | 0.110    |  24 |  20
+ 100-150       |    88| 0.6957 | 0.114    |   5 |   2
+ 150-300       |    12| 0.5000 | 0.083    |   2 |   0
+
+════════════════════════════════════════
+ Generated Artefacts
+════════════════════════════════════════
+  error_analysis/confusion_matrix.png
+  error_analysis/pr_curve.png
+  error_analysis/training_history.png
+  error_analysis/prob_distribution.png
+  error_analysis/keyword_f1.png
+  error_analysis/keyword_error_breakdown.png
+  error_analysis/error_examples.json
+  error_analysis/keyword_analysis.json
+  error_analysis/length_analysis.json
+  error_analysis/country_analysis.json

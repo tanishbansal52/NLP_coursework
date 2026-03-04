@@ -1,0 +1,11 @@
+{
+  "model_name": "cardiffnlp/roberta-base-offensive",
+  "epochs": 6,
+  "lr": 1.5e-05,
+  "batch_size": 16,
+  "mask_locs": false,
+  "target_ratio": 0.3,
+  "use_aug": false,
+  "patience": 2,
+  "threshold": 0.3
+}

@@ -1,0 +1,122 @@
+[
+  {
+    "country": "sg",
+    "n": 95,
+    "f1_pcl": 0.0,
+    "pcl_rate": 0.021
+  },
+  {
+    "country": "bd",
+    "n": 103,
+    "f1_pcl": 0.1818,
+    "pcl_rate": 0.039
+  },
+  {
+    "country": "lk",
+    "n": 85,
+    "f1_pcl": 0.3077,
+    "pcl_rate": 0.082
+  },
+  {
+    "country": "gb",
+    "n": 127,
+    "f1_pcl": 0.3636,
+    "pcl_rate": 0.055
+  },
+  {
+    "country": "za",
+    "n": 110,
+    "f1_pcl": 0.4211,
+    "pcl_rate": 0.064
+  },
+  {
+    "country": "au",
+    "n": 98,
+    "f1_pcl": 0.4444,
+    "pcl_rate": 0.02
+  },
+  {
+    "country": "us",
+    "n": 114,
+    "f1_pcl": 0.4444,
+    "pcl_rate": 0.079
+  },
+  {
+    "country": "in",
+    "n": 104,
+    "f1_pcl": 0.4615,
+    "pcl_rate": 0.058
+  },
+  {
+    "country": "nz",
+    "n": 101,
+    "f1_pcl": 0.4706,
+    "pcl_rate": 0.089
+  },
+  {
+    "country": "ph",
+    "n": 105,
+    "f1_pcl": 0.48,
+    "pcl_rate": 0.095
+  },
+  {
+    "country": "pk",
+    "n": 109,
+    "f1_pcl": 0.48,
+    "pcl_rate": 0.101
+  },
+  {
+    "country": "jm",
+    "n": 104,
+    "f1_pcl": 0.5,
+    "pcl_rate": 0.077
+  },
+  {
+    "country": "ng",
+    "n": 108,
+    "f1_pcl": 0.5217,
+    "pcl_rate": 0.093
+  },
+  {
+    "country": "gh",
+    "n": 84,
+    "f1_pcl": 0.6316,
+    "pcl_rate": 0.131
+  },
+  {
+    "country": "tz",
+    "n": 94,
+    "f1_pcl": 0.7059,
+    "pcl_rate": 0.074
+  },
+  {
+    "country": "ke",
+    "n": 113,
+    "f1_pcl": 0.72,
+    "pcl_rate": 0.088
+  },
+  {
+    "country": "my",
+    "n": 116,
+    "f1_pcl": 0.7273,
+    "pcl_rate": 0.052
+  },
+  {
+    "country": "ie",
+    "n": 112,
+    "f1_pcl": 0.75,
+    "pcl_rate": 0.08
+  },
+  {
+    "country": "hk",
+    "n": 93,
+    "f1_pcl": 0.7692,
+    "pcl_rate": 0.075
+  },
+  {
+    "country": "ca",
+    "n": 118,
+    "f1_pcl": 0.8571,
+    "pcl_rate": 0.059
+  }
+]

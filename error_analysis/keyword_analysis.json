@@ -1,0 +1,82 @@
+[
+  {
+    "keyword": "immigrant",
+    "n": 218,
+    "prevalence": 0.028,
+    "f1_pcl": 0.2857,
+    "fp_rate": 0.0,
+    "fn_rate": 0.833
+  },
+  {
+    "keyword": "refugee",
+    "n": 188,
+    "prevalence": 0.043,
+    "f1_pcl": 0.4,
+    "fp_rate": 0.044,
+    "fn_rate": 0.5
+  },
+  {
+    "keyword": "vulnerable",
+    "n": 209,
+    "prevalence": 0.067,
+    "f1_pcl": 0.4667,
+    "fp_rate": 0.046,
+    "fn_rate": 0.5
+  },
+  {
+    "keyword": "women",
+    "n": 233,
+    "prevalence": 0.043,
+    "f1_pcl": 0.4762,
+    "fp_rate": 0.027,
+    "fn_rate": 0.5
+  },
+  {
+    "keyword": "hopeless",
+    "n": 217,
+    "prevalence": 0.115,
+    "f1_pcl": 0.5085,
+    "fp_rate": 0.099,
+    "fn_rate": 0.4
+  },
+  {
+    "keyword": "disabled",
+    "n": 194,
+    "prevalence": 0.052,
+    "f1_pcl": 0.5714,
+    "fp_rate": 0.027,
+    "fn_rate": 0.4
+  },
+  {
+    "keyword": "poor-families",
+    "n": 190,
+    "prevalence": 0.153,
+    "f1_pcl": 0.5763,
+    "fp_rate": 0.081,
+    "fn_rate": 0.414
+  },
+  {
+    "keyword": "homeless",
+    "n": 212,
+    "prevalence": 0.099,
+    "f1_pcl": 0.5833,
+    "fp_rate": 0.068,
+    "fn_rate": 0.333
+  },
+  {
+    "keyword": "in-need",
+    "n": 226,
+    "prevalence": 0.093,
+    "f1_pcl": 0.6122,
+    "fp_rate": 0.063,
+    "fn_rate": 0.286
+  },
+  {
+    "keyword": "migrant",
+    "n": 206,
+    "prevalence": 0.024,
+    "f1_pcl": 0.75,
+    "fp_rate": 0.0,
+    "fn_rate": 0.4
+  }
+]

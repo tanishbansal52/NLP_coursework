@@ -26,7 +26,7 @@ MODEL_NAME      = "roberta-base"
 PATIENCE        = 2
 THRESHOLD       = 0.30
 USE_CHECKPOINT  = False
-LAST_EPOCH      = 1
+LAST_EPOCH      = 3
 # --------------
 
 print("loading train split...")
@@ -91,3 +91,27 @@ metrics = clf.evaluate(dev_df["text"], dev_df["label"])
 with open(os.path.join(OUTPUT_DIR, "final_eval.json"), "w") as f:
     json.dump(metrics, f, indent=2)
 print(f"eval results saved -> {os.path.join(OUTPUT_DIR, 'final_eval.json')}")
+
+# --- threshold sweep on dev set ---
+print("\nthreshold sweep on dev set...")
+from sklearn.metrics import precision_recall_fscore_support, f1_score as _f1
+
+probs = clf.predict_proba(dev_df["text"], preprocess=True)
+true_labels = list(dev_df["label"])
+
+sweep_results = []
+for t in [0.20, 0.25, 0.30, 0.35, 0.40, 0.45, 0.50]:
+    preds = [1 if p >= t else 0 for p in probs]
+    _, _, f1_pcl, _ = precision_recall_fscore_support(
+        true_labels, preds, pos_label=1, average="binary", zero_division=0
+    )
+    f1_mac = _f1(true_labels, preds, average="macro", zero_division=0)
+    sweep_results.append({"threshold": t, "f1_pcl": round(f1_pcl, 4), "f1_macro": round(f1_mac, 4)})
+    print(f"  threshold={t:.2f}  f1_pcl={f1_pcl:.4f}  f1_macro={f1_mac:.4f}")
+
+best = max(sweep_results, key=lambda x: x["f1_pcl"])
+print(f"  best threshold: {best['threshold']}  f1_pcl={best['f1_pcl']}")
+
+with open(os.path.join(OUTPUT_DIR, "threshold_sweep.json"), "w") as f:
+    json.dump({"sweep": sweep_results, "best": best}, f, indent=2)
+print(f"sweep saved -> {os.path.join(OUTPUT_DIR, 'threshold_sweep.json')}")

@@ -1,0 +1,730 @@
+{
+  "false_positives": [
+    {
+      "par_id": 4802,
+      "text": "Fasting bridges the gap between rich and poor , sustained and impoverished , fulfilled and needy . This experience should then inspire compassion and mercy , which is manifest by generosity of wealth and time to help those in need .",
+      "label": 0,
+      "pred": 1,
+      "prob_pcl": 0.9921,
+      "keyword": "in-need",
+      "country": "tz"
+    },
+    {
+      "par_id": 10031,
+      "text": "Adopt a Mission serves as a platform for the church and for likeminded people to reach out to unemployed families in the communities -- whoever is in need . \" <h> The forgotten people of Brooklyn",
+      "label": 0,
+      "pred": 1,
+      "prob_pcl": 0.9905,
+      "keyword": "in-need",
+      "country": "za"
+    },
+    {
+      "par_id": 9353,
+      "text": "But more than taking personal strength from the heroines of Philippine culture , Alma finds greater inspiration in being able to share her skills to build on the dreams of women and children , \" I look at art not as a career but as a spiritual expression . Art should bring out what is innately beautiful , especially to those who are hopeless . \"",
+      "label": 0,
+      "pred": 1,
+      "prob_pcl": 0.9889,
+      "keyword": "hopeless",
+      "country": "ph"
+    },
+    {
+      "par_id": 8689,
+      "text": "Allman Town resident Sonya Wilson ( second left ) , and one of her daughters ( fourth left ) hand out boxed lunches to a group of homeless people on King Street , downtown Kingston , on Thursday .",
+      "label": 0,
+      "pred": 1,
+      "prob_pcl": 0.9887,
+      "keyword": "homeless",
+      "country": "jm"
+    },
+    {
+      "par_id": 1279,
+      "text": "Pope Francis washed and kissed the feet of Muslim , Orthodox , Hindu and Catholic refugees in a moving ceremony during Holy Thursday Mass at a refugee centre on the outskirts of Rome . ( March 24 )",
+      "label": 0,
+      "pred": 1,
+      "prob_pcl": 0.9887,
+      "keyword": "refugee",
+      "country": "ng"
+    },
+    {
+      "par_id": 8848,
+      "text": "While the scale of waste is astonishing in the Western world , the plight of the poor families in the UK being \" literally \" forced to rely on food banks than those suffering in African villages and refugee camps , is a sad story . But it is a true story .",
+      "label": 0,
+      "pred": 1,
+      "prob_pcl": 0.9882,
+      "keyword": "poor-families",
+      "country": "lk"
+    },
+    {
+      "par_id": 9841,
+      "text": "The past year has not been easy -- neither for the refugees , nor for those assisting them . A process complicated by the knowledge that there is no end in sight to the suffering of the most persecuted community in the world , with diplomatic deals regarding repatriation , having failed time and time again in the past .",
+      "label": 0,
+      "pred": 1,
+      "prob_pcl": 0.9878,
+      "keyword": "refugee",
+      "country": "bd"
+    },
+    {
+      "par_id": 4494,
+      "text": "\" We shall remember him for the immense contribution he made to the many vulnerable sectors of humanity ? women ? children ? orphans the disabled and refugees . \"",
+      "label": 0,
+      "pred": 1,
+      "prob_pcl": 0.9874,
+      "keyword": "vulnerable",
+      "country": "za"
+    },
+    {
+      "par_id": 9505,
+      "text": "I mention these moments to highlight and illustrate the potential that young people have to change our society . In all these moments they were able to find a way in situations that were otherwise deemed hopeless . Where other people could not have thought that there was way , young people were able to create one .",
+      "label": 0,
+      "pred": 1,
+      "prob_pcl": 0.9871,
+      "keyword": "hopeless",
+      "country": "za"
+    },
+    {
+      "par_id": 9576,
+      "text": "Miskia Ahmed , a 21-year-old female Somalia refugee who has lived in Kenya since her childhood has a burning desire to change a narrative punctuated by despair and hopelessness .",
+      "label": 0,
+      "pred": 1,
+      "prob_pcl": 0.9871,
+      "keyword": "hopeless",
+      "country": "ke"
+    },
+    {
+      "par_id": 9549,
+      "text": "Usually children of poor families remember their parents ' struggles and become generous to them as poverty early in life drove them to success . It is the children of the rich that feel a sense of entitlement that mostly becomes ungrateful to their parents . The same children that inflated their school fees and shared it equally with the bursar , regardless of their fathers ' sweat on the farm .",
+      "label": 0,
+      "pred": 1,
+      "prob_pcl": 0.9869,
+      "keyword": "poor-families",
+      "country": "ng"
+    },
+    {
+      "par_id": 9509,
+      "text": "Aid agencies are warning that a whole generation of Syrian children is being mentally scarred by the conflict at home -- and by the difficulties of life as a refugee . As Henry Ridgwell reports , charities say treatment for traumatized children is vastly underfunded.",
+      "label": 0,
+      "pred": 1,
+      "prob_pcl": 0.9862,
+      "keyword": "refugee",
+      "country": "us"
+    },
+    {
+      "par_id": 9011,
+      "text": "ATD wants to uplift the self-esteem of MNC residents , without making them feel hopeless or dependent .",
+      "label": 0,
+      "pred": 1,
+      "prob_pcl": 0.9857,
+      "keyword": "hopeless",
+      "country": "ph"
+    },
+    {
+      "par_id": 6708,
+      "text": "I only wish they can one day wake up to relise that they were blessed to be born in such influential families to help people in need . They can use their influence to bring better changed in other peoples life .",
+      "label": 0,
+      "pred": 1,
+      "prob_pcl": 0.9854,
+      "keyword": "in-need",
+      "country": "pk"
+    },
+    {
+      "par_id": 9732,
+      "text": "\" It 's the politicians that have no faith in the people . All we hear from them is negativity . If you keep feeding negativity , the response is a people who are tired , bored and feeling hopelessness . Give the people something to strive for . Build youth centres . There are sooooo many talented youth . Jamaica must stop bad-mouthing ALL youth . The majority just want one simple thing and that i",
+      "label": 0,
+      "pred": 1,
+      "prob_pcl": 0.9846,
+      "keyword": "hopeless",
+      "country": "jm"
+    },
+    {
+      "par_id": 8978,
+      "text": "Jesus begins his teaching in Matthew with the Sermon on the Mount . One group he blesses is those in need of comfort , Blessed are they who mourn , for they will be comforted ( Mt 5:4 ) .",
+      "label": 0,
+      "pred": 1,
+      "prob_pcl": 0.9844,
+      "keyword": "in-need",
+      "country": "my"
+    },
+    {
+      "par_id": 8838,
+      "text": "\" I always consider this job as a gift , being a nurse is a reward and task given by God to help those who are in need . Seeing your patient recover from an illness , watching their families smile when you give them care , and hearing the first cry of a newborn are just some of the things that make my work special . It might be a heavy work but it can lighten your heart , \" she expressed .",
+      "label": 0,
+      "pred": 1,
+      "prob_pcl": 0.984,
+      "keyword": "in-need",
+      "country": "ph"
+    },
+    {
+      "par_id": 10230,
+      "text": "Delhi : Going on stage at school and acting out scenes from your home life can uncover hidden truths . The stage at Prerna School for Girls in Lucknow is the place where the performers - girls from poor families in the surrounding slums - suddenly realise they are unequal .",
+      "label": 0,
+      "pred": 1,
+      "prob_pcl": 0.9839,
+      "keyword": "poor-families",
+      "country": "au"
+    },
+    {
+      "par_id": 9386,
+      "text": "A happy day it was indeed when a 31 homeless street dogs found their forever homes in the loving arms of the kind children and adults who visited Embark 's ' Adopt A Dog Day ' at Lyceum International School , Nugegoda on the 15th of September . Students from grades 1 to 8 were invited to attend along with their families and friends . The organizers were delighted by the fact that all the puppies a",
+      "label": 0,
+      "pred": 1,
+      "prob_pcl": 0.9806,
+      "keyword": "homeless",
+      "country": "lk"
+    },
+    {
+      "par_id": 10090,
+      "text": "\" We have identified extremely poor families , orphaned children , the elderly and those living with HIV/AIDS but with no source of income . We will give them priority to enable them get treated whenever they fall sick , \" he said .",
+      "label": 0,
+      "pred": 1,
+      "prob_pcl": 0.9805,
+      "keyword": "poor-families",
+      "country": "ke"
+    }
+  ],
+  "false_negatives": [
+    {
+      "par_id": 2918,
+      "text": "Famously progressive San Francisco has among America 's most eco-friendly public policies and has declared itself a sanctuary to immigrants it considers persecuted by President Donald Trump 's administration .",
+      "label": 1,
+      "pred": 0,
+      "prob_pcl": 0.0006,
+      "keyword": "migrant",
+      "country": "pk"
+    },
+    {
+      "par_id": 1870,
+      "text": "He said : \" I think we can consider introducing a negligible telecom surcharge to be entirely borne by the initiator of a call . In order to protect the poor and vulnerable amongst us , we could structure it to only take effect after the third minute of talk .",
+      "label": 1,
+      "pred": 0,
+      "prob_pcl": 0.0006,
+      "keyword": "vulnerable",
+      "country": "ng"
+    },
+    {
+      "par_id": 149,
+      "text": "Krueger recently harnessed that creativity to self-publish a book featuring the poems , artwork , photography and short stories of 16 ill or disabled artists from around the world . She hopes the book , which contains some of her own work as well , will show how talented disabled people can be .",
+      "label": 1,
+      "pred": 0,
+      "prob_pcl": 0.0007,
+      "keyword": "disabled",
+      "country": "us"
+    },
+    {
+      "par_id": 6056,
+      "text": "IdeaRaya spokesman Maryam Ramli Lee in an interview with Malay Mail Online , September 10 , 2015 . For human rights , Idearaya is shining a spotlight on marginalised communities such as refugees and migrant workers , while its focus for philosophy this year would be on educating children to express themselves philosophically .",
+      "label": 1,
+      "pred": 0,
+      "prob_pcl": 0.0007,
+      "keyword": "refugee",
+      "country": "my"
+    },
+    {
+      "par_id": 10326,
+      "text": "A top health official said today that the government could consider subsidies to help poor families pay for healthy food -- or imposing taxes on unhealthy products -- if other efforts fail to encourage better eating habits among Hong Kong residents . Dr Regina Ching from the Health Department said such moves could be explored as a way to cut levels of chronic illnesses in the city , such ...",
+      "label": 1,
+      "pred": 0,
+      "prob_pcl": 0.0007,
+      "keyword": "poor-families",
+      "country": "hk"
+    },
+    {
+      "par_id": 1648,
+      "text": "Mari ? tte Coetzee from Stofberg Family Vineyards ( whose Mia Chenin Blanc 2016 was the garagiste trophy winner at last year 's Michelangelo Awards and the recipient of four Platter 's stars for the Mari ? tte Chenin Blanc 2016 ) , says : \" We can be extremely proud of the current women winemakers in our industry , especially considering most of them are juggling a family along with the long worki",
+      "label": 1,
+      "pred": 0,
+      "prob_pcl": 0.0007,
+      "keyword": "women",
+      "country": "za"
+    },
+    {
+      "par_id": 8706,
+      "text": "A massive cleanup and awareness drive was conducted jointly by the LWMC and the Bahria University , Lahore Campus in different localities of Johar Town . The purpose of the drive was to improve state of cleanliness and sensitise poor families to hygienic conditions .",
+      "label": 1,
+      "pred": 0,
+      "prob_pcl": 0.0007,
+      "keyword": "poor-families",
+      "country": "pk"
+    },
+    {
+      "par_id": 6234,
+      "text": "The World Health Organization did not give a reason for the increase in deaths , but a provincial health official in Sindh said that the disease hit areas where poor families did not vaccinate their children .",
+      "label": 1,
+      "pred": 0,
+      "prob_pcl": 0.0007,
+      "keyword": "poor-families",
+      "country": "us"
+    },
+    {
+      "par_id": 7726,
+      "text": "In Dublin , the Church of Ireland Archbishop Dr Michael Jackson reflected on the year drawing to a close and recalled the \" horrific conflagration at the halting site in Carrickmines \" and the death of Garda Tony Golden in Omeath , as well as the \" refugees fleeing from Syria \" and other parts of the Middle East and the \" forgotten peoples of Africa \" .",
+      "label": 1,
+      "pred": 0,
+      "prob_pcl": 0.0007,
+      "keyword": "refugee",
+      "country": "ie"
+    },
+    {
+      "par_id": 5059,
+      "text": "New Zealand has been getting more comfortable confronting difficult issues in primetime . Last year , Nigel Latta : The Hard Stuff 's exploration of suicide and teenagers ' online lives was a hit . Earlier this year another season of The Undateables , a British show about dating amongst the disabled and those with learning disabilities played at 8.45pm Mondays on TVNZ 2 . And despite the exploitat",
+      "label": 1,
+      "pred": 0,
+      "prob_pcl": 0.0009,
+      "keyword": "disabled",
+      "country": "nz"
+    },
+    {
+      "par_id": 2342,
+      "text": "The measures have kept the migrants living in limbo . The overwhelming majority have not been granted asylum and they lead a tenuous existence , often at the whims of the government .",
+      "label": 1,
+      "pred": 0,
+      "prob_pcl": 0.0009,
+      "keyword": "migrant",
+      "country": "hk"
+    },
+    {
+      "par_id": 8722,
+      "text": "But if the Supreme Court gives a favorable decision for the president , his immigration program would immediately take effect , changing the lives of eligible Filipino families and other immigrants .",
+      "label": 1,
+      "pred": 0,
+      "prob_pcl": 0.0009,
+      "keyword": "immigrant",
+      "country": "ph"
+    },
+    {
+      "par_id": 4227,
+      "text": "We have done a great deal of work but the biggest thing we have done is to make the ministry a powerful tool for the protection of women ... Over the last four years , every time somebody comes up with a good idea or proposes an area in which women need help , we have adopted it immediately . We have been doing two things -- policymaking , which also pushes other ministries , and looking at indivi",
+      "label": 1,
+      "pred": 0,
+      "prob_pcl": 0.0009,
+      "keyword": "women",
+      "country": "in"
+    },
+    {
+      "par_id": 4046,
+      "text": "We also know that they can benefit by receiving counseling from someone who can help them understand that their feelings are normal and that their situation is not hopeless ; someone who can help them put their situation in perspective and help them communicate with others who could provide support ; someone knowledgeable about resources they can access ; someone who can help them plan for their n",
+      "label": 1,
+      "pred": 0,
+      "prob_pcl": 0.0012,
+      "keyword": "hopeless",
+      "country": "us"
+    },
+    {
+      "par_id": 952,
+      "text": "Bombarded by schizophrenia , addiction and homelessness , you might say that Eoghan O'Driscoll has been to hell and back . But he is finding a new balance through painting . Interview : Michael Lanigan",
+      "label": 1,
+      "pred": 0,
+      "prob_pcl": 0.0012,
+      "keyword": "homeless",
+      "country": "ie"
+    },
+    {
+      "par_id": 3614,
+      "text": "News this month that Anglican Care spent $4 million buying a Christchurch site as a hub for vulnerable youths is a fine example of that community-minded approach . In years to come there may be an interesting contrast between a beautifully restored cathedral that is empty much of the time and a youth hub and revamped City Mission that are constantly busy .",
+      "label": 1,
+      "pred": 0,
+      "prob_pcl": 0.0012,
+      "keyword": "vulnerable",
+      "country": "nz"
+    },
+    {
+      "par_id": 5722,
+      "text": "Calling for an immediate political solution to resolve the crisis in Syria , Erdogan said : \" Turkey 's incursion into northern Syria in early September had led to establishing peace , balance and stability in a region taken over by hopelessness \" .",
+      "label": 1,
+      "pred": 0,
+      "prob_pcl": 0.0013,
+      "keyword": "hopeless",
+      "country": "bd"
+    },
+    {
+      "par_id": 9119,
+      "text": "NEW DELHI : Activists and medical professionals have lauded the government 's move to increase the ambit of the disabled list to offer benefits to acid attack survivors , those suffering from chronic neurological conditions , and haemophilia and sickle cell anaemia patients . This , they said , will help in integrating them into society .",
+      "label": 1,
+      "pred": 0,
+      "prob_pcl": 0.0013,
+      "keyword": "disabled",
+      "country": "in"
+    },
+    {
+      "par_id": 9587,
+      "text": "Jamaicans are deemed to be among the most violent persons on planet Earth . Some argue that it has to do with our legacy of slavery which in itself was an act of extreme violence . Some even posit that it may well be that we have too much sugar in our blood ; while others point to the socio-economic conditions that the majority of black Jamaicans have to live under which have led them to a point o",
+      "label": 1,
+      "pred": 0,
+      "prob_pcl": 0.0015,
+      "keyword": "hopeless",
+      "country": "jm"
+    },
+    {
+      "par_id": 9094,
+      "text": "' The problem with this place is that there is a lot of vulnerable people here and they get the wrong kind of help .",
+      "label": 1,
+      "pred": 0,
+      "prob_pcl": 0.0015,
+      "keyword": "vulnerable",
+      "country": "gb"
+    }
+  ],
+  "true_positives": [
+    {
+      "par_id": 4560,
+      "text": "Hundreds of thousand Africans are graduating per year . Different from 1980s and early 1990s when college outpours got immediately absorbed in the labour market , many today are jobless and hopeless .",
+      "label": 1,
+      "pred": 1,
+      "prob_pcl": 0.4431,
+      "keyword": "hopeless",
+      "country": "tz"
+    },
+    {
+      "par_id": 3382,
+      "text": "This little girl with her whole life in front of her can not go to school , can not read , can not write . At age seven , she is guilty , of being one of the world 's 60 million refugees in the year 2017 ! The government claims it has implemented \" 15 years free education \" but the reality does not match the words . For pre-school children , where government policies have created a completely priv",
+      "label": 1,
+      "pred": 1,
+      "prob_pcl": 0.8087,
+      "keyword": "poor-families",
+      "country": "hk"
+    },
+    {
+      "par_id": 6821,
+      "text": "That is the big picture , the one conveyed in official reports and government documents . But for the people who live on the ground in the province , it does not begin to portray the hopelessness , the everyday obstacles , the decay .",
+      "label": 1,
+      "pred": 1,
+      "prob_pcl": 0.8795,
+      "keyword": "hopeless",
+      "country": "za"
+    },
+    {
+      "par_id": 8256,
+      "text": "I now know why Mike Redmond is proposing a school lunch program . This news about 1/4 of all kids coming from poor families with not much food is an embarrassment . And Ghiz throws our tax dollars at his construction buddies &amp; immigrant investment at his political buddies . And then Ghiz and Myers and their good ol ' boy supporters decry a proposed program like free school lunches as a type of",
+      "label": 1,
+      "pred": 1,
+      "prob_pcl": 0.8843,
+      "keyword": "poor-families",
+      "country": "ca"
+    },
+    {
+      "par_id": 1834,
+      "text": "Behind the initiative are Danish national Lars Jorgensen and his American wife Monica , who came to the Philippines as backpacking tourists 27 years ago and were moved by the sight of Manila 's young and homeless .",
+      "label": 1,
+      "pred": 1,
+      "prob_pcl": 0.9308,
+      "keyword": "homeless",
+      "country": "ph"
+    },
+    {
+      "par_id": 6510,
+      "text": "\" These poor ladies are definitely going through some traumatic issues right now , and I am asking that they come forward so that I help them ? together with women parliamentarians - to be able to heal .",
+      "label": 1,
+      "pred": 1,
+      "prob_pcl": 0.9428,
+      "keyword": "women",
+      "country": "ke"
+    },
+    {
+      "par_id": 8939,
+      "text": "In the course of the coming week , the season of Lent begins . It is a time for renewal for each one of us , a time to draw closer to the Lord so that he may pick us up and set us again on his pathway to the fullness of life . The steps we are invited to take during Lent include the three traditional Lenten practices : prayer , fasting and almsgiving . We are to make these practices a more constan",
+      "label": 1,
+      "pred": 1,
+      "prob_pcl": 0.9508,
+      "keyword": "in-need",
+      "country": "gb"
+    },
+    {
+      "par_id": 2333,
+      "text": "She added that her office has worked relentlessly with the present administration to translate policies into concrete actions for the women , children , the aged , orphans , the disabled , and other vulnerable members of the society . Hajiya Yuguda challenged Nigerians to believe in the immense capacity and capability of the women folk in nation building in order to bring about the much needed pos",
+      "label": 1,
+      "pred": 1,
+      "prob_pcl": 0.9536,
+      "keyword": "disabled",
+      "country": "ng"
+    },
+    {
+      "par_id": 5829,
+      "text": "Bus driver Cathal Carroll asks if I 've heard the news this morning . I have n't . Four thousand souls have just been rescued from the waters of the Mediterranean , he says . All of them African refugees . All fleeing hunger and persecution in their native lands . What do I think about that ?",
+      "label": 1,
+      "pred": 1,
+      "prob_pcl": 0.9722,
+      "keyword": "refugee",
+      "country": "ie"
+    },
+    {
+      "par_id": 6852,
+      "text": "It was through that experience Guest decided to help others in need , people who society had passed by , a notion he has continued throughout his retirement years .",
+      "label": 1,
+      "pred": 1,
+      "prob_pcl": 0.9726,
+      "keyword": "in-need",
+      "country": "ca"
+    },
+    {
+      "par_id": 1693,
+      "text": "\" They have made them to become hopeless and now , in \" going to God \" , they have ended up being deceived further and their situation is exploited and the society becomes even worse .",
+      "label": 1,
+      "pred": 1,
+      "prob_pcl": 0.9817,
+      "keyword": "hopeless",
+      "country": "ng"
+    },
+    {
+      "par_id": 4063,
+      "text": "Budding chefs , like \" Fred \" , \" Winston \" and \" Angela \" in the kitchen are either homeless or recently re-housed - and desperately in need of a helping hand to enable them to re-build their shattered lives .",
+      "label": 1,
+      "pred": 1,
+      "prob_pcl": 0.9835,
+      "keyword": "in-need",
+      "country": "ie"
+    },
+    {
+      "par_id": 3130,
+      "text": "Stephanie envisioned a model whereby women in need would be taught a skill such as handcrafts , and be paid a fair trade wage for their efforts . In turn , the women who had experienced hardship and marginalisation would grow to become self-sufficient . With the products then sold in Australia via an online store and a network of retailers , the profits would be reinvested in Seven Women to contin",
+      "label": 1,
+      "pred": 1,
+      "prob_pcl": 0.9873,
+      "keyword": "in-need",
+      "country": "au"
+    },
+    {
+      "par_id": 154,
+      "text": "When some people feel causing problem for some others by breaking into their homes to steal is n't too good , they just result to begging . You now see people without deformities begging , when some people who are disabled work to feed their mouth . You then ask , what type of country is Nigeria ? Even a man who is not lettered would chorus the maxim that two wrongs do n't make a right . The count",
+      "label": 1,
+      "pred": 1,
+      "prob_pcl": 0.9876,
+      "keyword": "disabled",
+      "country": "ng"
+    },
+    {
+      "par_id": 9518,
+      "text": "Bond went out of his way to help the less fortunate , often going on the road with Kim to take food to the homeless .",
+      "label": 1,
+      "pred": 1,
+      "prob_pcl": 0.9896,
+      "keyword": "homeless",
+      "country": "jm"
+    },
+    {
+      "par_id": 3716,
+      "text": "He said that only deserving people had the right to benefit from the Wall of Kindness who were in need of such things and did not want to beg from others .",
+      "label": 1,
+      "pred": 1,
+      "prob_pcl": 0.9898,
+      "keyword": "in-need",
+      "country": "pk"
+    },
+    {
+      "par_id": 5252,
+      "text": "Xi made the remarks during a tour of the city of Zhangjiakou in northern China 's Hebei Province , where he inspected an impoverished village , visiting and chatting with poor families , discussing how they could shake off poverty .",
+      "label": 1,
+      "pred": 1,
+      "prob_pcl": 0.99,
+      "keyword": "poor-families",
+      "country": "gh"
+    },
+    {
+      "par_id": 1283,
+      "text": "\" Stateless \" is the story of a forgotten group of Vietnamese refugees who spent over 16 years in the Philippines waiting for resettlement . Caught at the low tide of compassion fatigue by the international community , which led to the closure of refugee camps in Southeast Asia in the early 1990s , the refugees found themselves lost with no country to call home .",
+      "label": 1,
+      "pred": 1,
+      "prob_pcl": 0.9902,
+      "keyword": "refugee",
+      "country": "ph"
+    },
+    {
+      "par_id": 7004,
+      "text": "We have the opportunity to give the gift of love , to shine a light in the darkness of despair , to share with others who are in need , to comfort those who are sad or lonely .",
+      "label": 1,
+      "pred": 1,
+      "prob_pcl": 0.9908,
+      "keyword": "in-need",
+      "country": "jm"
+    },
+    {
+      "par_id": 8168,
+      "text": "These latest gifts are from parents at a local home daycare who pooled together their own money and resources to help Raijene Mallory even more . Art Randolph did the heavy lifting , bringing in package after package to the once homeless family 's new northside apartment . Each wrapped gift and crate carrying necessities , clothing and toys coming from a group of compassionate mothers to another i",
+      "label": 1,
+      "pred": 1,
+      "prob_pcl": 0.9925,
+      "keyword": "in-need",
+      "country": "us"
+    }
+  ],
+  "true_negatives": [
+    {
+      "par_id": 10235,
+      "text": "Members of the Consular Corps of New Orleans met and mingled with Filipino immigrants who have sunk roots in the Pelican State , many of whom , like the first Filipino settlers in the Barataria Bay , have intermarried with native-born Americans .",
+      "label": 0,
+      "pred": 0,
+      "prob_pcl": 0.0006,
+      "keyword": "migrant",
+      "country": "ph"
+    },
+    {
+      "par_id": 9822,
+      "text": "As I was working for a magazine owned by a foreigner ( and no less a foreigner than a South African millionaire ! ) this perception of my character made me very vulnerable indeed . Every disagreement I had with them could always be misconstrued as coming from the warped mind of an \" imperialist agent \" or worse , a person who was taking the shilling of an \" apartheid collaborator \" .",
+      "label": 0,
+      "pred": 0,
+      "prob_pcl": 0.0006,
+      "keyword": "vulnerable",
+      "country": "gh"
+    },
+    {
+      "par_id": 10280,
+      "text": "But other analysts warned against drawing too many conclusions from the latest payroll report -- which excludes agriculture , an industry that is very vulnerable to trade tensions . While some businesses will keenly feel the effects of tariffs , the mammoth United States economy is primary driven by domestic demand .",
+      "label": 0,
+      "pred": 0,
+      "prob_pcl": 0.0006,
+      "keyword": "vulnerable",
+      "country": "us"
+    },
+    {
+      "par_id": 8856,
+      "text": "That many Hongkongers are opting for late marriage is undeniable . The median age for marriage for women was 29.3 in 2015 , compared with 23.9 in 1981 . For men , it was 31.2 last year , compared with 27.0 in 1981 .",
+      "label": 0,
+      "pred": 0,
+      "prob_pcl": 0.0006,
+      "keyword": "women",
+      "country": "hk"
+    },
+    {
+      "par_id": 9779,
+      "text": "However , a recent Elabe poll for news channel BFMTV said 57 percent of French respondents oppose taking in more refugees .",
+      "label": 0,
+      "pred": 0,
+      "prob_pcl": 0.0006,
+      "keyword": "refugee",
+      "country": "gh"
+    },
+    {
+      "par_id": 9886,
+      "text": "The aid will be targeted at the most vulnerable in storm-struck localities of the two neighbouring countries , the European Commission said in a statement .",
+      "label": 0,
+      "pred": 0,
+      "prob_pcl": 0.0006,
+      "keyword": "vulnerable",
+      "country": "bd"
+    },
+    {
+      "par_id": 9685,
+      "text": "Family said that Chiffon Ma-ry Bremby left her home around 2:30 p.m. on Sunday ( Feb. 4 ) and has n't been seen since . The family is very concerned for her safety since this is out of character for her to leave without notifying her family , and she also has medical issues and is in need of medication .",
+      "label": 0,
+      "pred": 0,
+      "prob_pcl": 0.0007,
+      "keyword": "in-need",
+      "country": "us"
+    },
+    {
+      "par_id": 10354,
+      "text": "Syngman Rhee , the South Korean president fled , but not before he had order the blowing up of the Hangang Bridge across the Han River in an attempt to stop the advance -- killing hundreds of fleeing refugees -- and then the massacre of his political opponents .",
+      "label": 0,
+      "pred": 0,
+      "prob_pcl": 0.0007,
+      "keyword": "refugee",
+      "country": "gb"
+    },
+    {
+      "par_id": 9726,
+      "text": "When a woman 's reproductive capacity is longer and when menopause occurs late , the body 's hormonal action helps reduce the risk of depression.Researchers opine that estrogen levels have a link with this effect but still are not sure about it . They are also studying whether estrogen based therapy might help women reduce their risk of suffering depression at a late age .",
+      "label": 0,
+      "pred": 0,
+      "prob_pcl": 0.0007,
+      "keyword": "women",
+      "country": "in"
+    },
+    {
+      "par_id": 10418,
+      "text": "After almost two months of being homeless due to a fire , Osbourne ' Peanut Dread ' Ellis said he has grown weary of waiting on handouts are not forthcoming .",
+      "label": 0,
+      "pred": 0,
+      "prob_pcl": 0.0007,
+      "keyword": "homeless",
+      "country": "jm"
+    },
+    {
+      "par_id": 9686,
+      "text": "German police are on track to turn away some 20,000 migrants this year at the country 's borders , airports and sea ports , local media reported on Wednesday .",
+      "label": 0,
+      "pred": 0,
+      "prob_pcl": 0.0007,
+      "keyword": "migrant",
+      "country": "ng"
+    },
+    {
+      "par_id": 9791,
+      "text": "Fadzil said the duo then fled the scene with a mobile phone and a television after allegedly raping the women .",
+      "label": 0,
+      "pred": 0,
+      "prob_pcl": 0.0007,
+      "keyword": "women",
+      "country": "my"
+    },
+    {
+      "par_id": 9414,
+      "text": "To encourage parents to keep their children in school , UNICEF has given more than 400 poor families who arrived in 2016 the same sum in cash , plus grants to start small businesses .",
+      "label": 0,
+      "pred": 0,
+      "prob_pcl": 0.0008,
+      "keyword": "poor-families",
+      "country": "bd"
+    },
+    {
+      "par_id": 9489,
+      "text": "Emergency workers in military protective suits search the fenced off John Baker House for homeless people on Rollestone Street in Salisbury",
+      "label": 0,
+      "pred": 0,
+      "prob_pcl": 0.0009,
+      "keyword": "homeless",
+      "country": "ie"
+    },
+    {
+      "par_id": 8606,
+      "text": "In Narok , migrant communities inhabit towns and trading centres .",
+      "label": 0,
+      "pred": 0,
+      "prob_pcl": 0.001,
+      "keyword": "migrant",
+      "country": "ke"
+    },
+    {
+      "par_id": 8741,
+      "text": "Today , the doctor revealed that even if cancer is diagnosed in 3,500 children mostly from poor families , over eight in 10 , or 82 percent , of them survive and turn into healthy young adults .",
+      "label": 0,
+      "pred": 0,
+      "prob_pcl": 0.0017,
+      "keyword": "poor-families",
+      "country": "ph"
+    },
+    {
+      "par_id": 10452,
+      "text": "During the busy harvest period , it is common for children to work in the fields and help their families . Since it is not possible for the poor families to hire extra manpower , they depend on their young family members to do the small chores .",
+      "label": 0,
+      "pred": 0,
+      "prob_pcl": 0.0021,
+      "keyword": "poor-families",
+      "country": "bd"
+    },
+    {
+      "par_id": 9755,
+      "text": "Germany stops dozens of migrants stowing away to Britain",
+      "label": 0,
+      "pred": 0,
+      "prob_pcl": 0.0065,
+      "keyword": "migrant",
+      "country": "ph"
+    },
+    {
+      "par_id": 9540,
+      "text": "She added : \" I am really happy with the awards , but I just want to help those in need . \"",
+      "label": 0,
+      "pred": 0,
+      "prob_pcl": 0.007,
+      "keyword": "in-need",
+      "country": "gb"
+    },
+    {
+      "par_id": 8809,
+      "text": "Rather , she 's seen things through her work as a United Nations ambassador and visits to refugee camps in some of the most dangerous parts of the world that help put things into perspective .",
+      "label": 0,
+      "pred": 0,
+      "prob_pcl": 0.0176,
+      "keyword": "refugee",
+      "country": "au"
+    }
+  ]
+}

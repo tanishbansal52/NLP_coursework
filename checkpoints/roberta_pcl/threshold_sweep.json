@@ -1,0 +1,44 @@
+{
+  "sweep": [
+    {
+      "threshold": 0.2,
+      "f1_pcl": 0.5294,
+      "f1_macro": 0.7439
+    },
+    {
+      "threshold": 0.25,
+      "f1_pcl": 0.5298,
+      "f1_macro": 0.7444
+    },
+    {
+      "threshold": 0.3,
+      "f1_pcl": 0.5354,
+      "f1_macro": 0.7481
+    },
+    {
+      "threshold": 0.35,
+      "f1_pcl": 0.5404,
+      "f1_macro": 0.751
+    },
+    {
+      "threshold": 0.4,
+      "f1_pcl": 0.5392,
+      "f1_macro": 0.7506
+    },
+    {
+      "threshold": 0.45,
+      "f1_pcl": 0.5304,
+      "f1_macro": 0.7462
+    },
+    {
+      "threshold": 0.5,
+      "f1_pcl": 0.529,
+      "f1_macro": 0.7457
+    }
+  ],
+  "best": {
+    "threshold": 0.35,
+    "f1_pcl": 0.5404,
+    "f1_macro": 0.751
+  }
+}

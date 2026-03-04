@@ -1,20 +1,50 @@
 import json
 import numpy as np
 import torch
+from pathlib import Path
 from torch import nn
-from transformers import AutoModelForSequenceClassification, get_linear_schedule_with_warmup
+from torch.utils.data import DataLoader, Dataset
+from transformers import (
+    AutoModelForSequenceClassification,
+    AutoTokenizer,
+    get_linear_schedule_with_warmup,
+)
 from sklearn.metrics import classification_report, f1_score, precision_recall_fscore_support
 
 import os, sys
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
-from model.classifier import PCLClassifier
+from data_analysis.preprocessing import mask_locations, clean_text
 from data_analysis.augmentation import augment_minority, oversample_minority
 
 SEED = 42
 
 
-class RobertaPCLClassifier(PCLClassifier):
+class PCLDataset(Dataset):
+    def __init__(self, texts, labels, tokenizer, max_len):
+        self.texts     = texts
+        self.labels    = labels
+        self.tokenizer = tokenizer
+        self.max_len   = max_len
+
+    def __len__(self):
+        return len(self.texts)
+
+    def __getitem__(self, idx):
+        enc = self.tokenizer(
+            self.texts[idx],
+            max_length=self.max_len,
+            padding="max_length",
+            truncation=True,
+            return_tensors="pt",
+        )
+        item = {k: v.squeeze(0) for k, v in enc.items()}
+        if self.labels is not None:
+            item["labels"] = torch.tensor(self.labels[idx], dtype=torch.long)
+        return item
+
+
+class RobertaPCLClassifier:
     def __init__(
         self,
         model_name="roberta-base",
@@ -31,31 +61,76 @@ class RobertaPCLClassifier(PCLClassifier):
         patience=2,
         threshold=0.35,
     ):
-        super().__init__(
-            model_name=model_name,
-            max_len=max_len,
-            batch_size=batch_size,
-            lr=lr,
-            epochs=epochs,
-            grad_accum=grad_accum,
-            mask_locs=mask_locs,
-            output_dir=output_dir,
-            device=device,
-        )
+        self.model_name   = model_name
+        self.max_len      = max_len
+        self.batch_size   = batch_size
+        self.lr           = lr
+        self.epochs       = epochs
+        self.grad_accum   = grad_accum
+        self.mask_locs    = mask_locs
+        self.output_dir   = Path(output_dir)
+        self.output_dir.mkdir(parents=True, exist_ok=True)
         self.target_ratio = target_ratio
         self.use_aug      = use_aug
         self.patience     = patience
         self.threshold    = threshold
+        self.model        = None
+
+        torch.manual_seed(SEED)
+        np.random.seed(SEED)
+
+        if device is None:
+            self.device = torch.device(
+                "mps"  if torch.backends.mps.is_available()  else
+                "cuda" if torch.cuda.is_available()          else
+                "cpu"
+            )
+        else:
+            self.device = torch.device(device)
+
+        self.tokenizer = AutoTokenizer.from_pretrained(model_name)
+        if mask_locs:
+            self.tokenizer.add_tokens(["[LOCATION]"])
+
+        print(f"device={self.device}  model={model_name}  mask_locs={mask_locs}")
+
+    def _preprocess(self, texts):
+        texts = [clean_text(t) for t in texts]
+        if self.mask_locs:
+            print("  applying location masking...")
+            texts = mask_locations(texts)
+        return texts
+
+    def _loader(self, texts, labels, shuffle):
+        ds = PCLDataset(texts, labels, self.tokenizer, self.max_len)
+        return DataLoader(ds, batch_size=self.batch_size, shuffle=shuffle, num_workers=0)
+
+    def _forward(self, batch):
+        return self.model(
+            input_ids      = batch["input_ids"].to(self.device),
+            attention_mask = batch["attention_mask"].to(self.device),
+        )
+
+    def _save(self, tag):
+        path = self.output_dir / tag
+        self.model.save_pretrained(str(path))
+        self.tokenizer.save_pretrained(str(path))
+        print(f"  saved -> {path}")
+
+    def load(self, tag="best"):
+        path = self.output_dir / tag
+        self.tokenizer = AutoTokenizer.from_pretrained(str(path))
+        self.model     = AutoModelForSequenceClassification.from_pretrained(str(path))
+        self.model.to(self.device)
+        self.model.eval()
+        print(f"  loaded from {path}")
 
     def _checkpoint_path(self, epoch):
         return self.output_dir / f"checkpoint_epoch{epoch}.pt"
 
-    # In _save_checkpoint, only save if it's the best epoch
     def _save_checkpoint(self, epoch, optimizer, scheduler, best_f1, epochs_no_impr):
-        # Only keep latest checkpoint to save disk space
         for old in self.output_dir.glob("checkpoint_epoch*.pt"):
-            old.unlink()   # delete previous checkpoint before saving new one
-        
+            old.unlink()
         torch.save({
             "epoch": epoch,
             "model_state": self.model.state_dict(),
@@ -64,6 +139,7 @@ class RobertaPCLClassifier(PCLClassifier):
             "best_f1": best_f1,
             "epochs_no_impr": epochs_no_impr,
         }, self.output_dir / f"checkpoint_epoch{epoch}.pt")
+        print(f"  checkpoint saved -> {self.output_dir / f'checkpoint_epoch{epoch}.pt'}")
 
     def _load_checkpoint(self, last_epoch, optimizer, scheduler):
         path = self._checkpoint_path(last_epoch)
@@ -73,7 +149,7 @@ class RobertaPCLClassifier(PCLClassifier):
         self.model.load_state_dict(ckpt["model_state"])
         optimizer.load_state_dict(ckpt["optimizer_state"])
         scheduler.load_state_dict(ckpt["scheduler_state"])
-        print(f"resumed from {path}  (epoch {ckpt['epoch']}, best_f1={ckpt['best_f1']:.4f})")
+        print(f"  resumed from {path}  (epoch {ckpt['epoch']}, best_f1={ckpt['best_f1']:.4f})")
         return ckpt["epoch"], ckpt["best_f1"], ckpt["epochs_no_impr"]
 
     def fit(self, train_texts, train_labels, val_texts=None, val_labels=None,
@@ -91,7 +167,6 @@ class RobertaPCLClassifier(PCLClassifier):
                 train_texts, train_labels, target_ratio=self.target_ratio
             )
 
-        # always build model fresh first — then optionally overwrite with checkpoint
         self.model = AutoModelForSequenceClassification.from_pretrained(
             self.model_name,
             num_labels=2,
@@ -100,7 +175,6 @@ class RobertaPCLClassifier(PCLClassifier):
         self.model.resize_token_embeddings(len(self.tokenizer))
 
         if not use_checkpoint:
-            # fresh init for new head
             nn.init.normal_(self.model.classifier.dense.weight, std=0.02)
             nn.init.zeros_(self.model.classifier.dense.bias)
             nn.init.normal_(self.model.classifier.out_proj.weight, std=0.02)
@@ -108,8 +182,7 @@ class RobertaPCLClassifier(PCLClassifier):
 
         self.model.to(self.device)
 
-        loss_fn = nn.CrossEntropyLoss()   # no class weights — augmentation handles imbalance
-
+        loss_fn = nn.CrossEntropyLoss()
         loader      = self._loader(train_texts, train_labels, shuffle=True)
         total_steps = (len(loader) // self.grad_accum) * self.epochs
         optimizer   = torch.optim.AdamW(
@@ -124,7 +197,7 @@ class RobertaPCLClassifier(PCLClassifier):
             start_epoch, best_f1, epochs_no_impr = self._load_checkpoint(
                 last_epoch, optimizer, scheduler
             )
-            start_epoch += 1   # continue from NEXT epoch
+            start_epoch += 1
         else:
             start_epoch    = 1
             best_f1        = -1.0
@@ -184,7 +257,6 @@ class RobertaPCLClassifier(PCLClassifier):
             else:
                 print(f"epoch {epoch}/{self.epochs}  loss={avg_loss:.4f}")
 
-            # save checkpoint after every epoch
             self._save_checkpoint(epoch, optimizer, scheduler, best_f1, epochs_no_impr)
             history.append(epoch_info)
 
@@ -192,6 +264,18 @@ class RobertaPCLClassifier(PCLClassifier):
         return history
 
     @torch.no_grad()
+    def predict_proba(self, texts, preprocess=True):
+        """Return raw PCL probabilities (class 1) without thresholding."""
+        assert self.model is not None, "call fit() or load() first"
+        if preprocess:
+            texts = self._preprocess(list(texts))
+        self.model.eval()
+        probs = []
+        for batch in self._loader(texts, None, shuffle=False):
+            p = torch.softmax(self._forward(batch).logits.float(), dim=-1)
+            probs.extend(p[:, 1].cpu().tolist())
+        return probs
+
     def predict(self, texts, preprocess=True):
         assert self.model is not None, "call fit() or load() first"
         if preprocess:
