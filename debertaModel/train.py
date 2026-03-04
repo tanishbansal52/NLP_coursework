@@ -6,7 +6,7 @@ load_dotenv()
 login(token=os.getenv("HUGGINGFACE_TOKEN"))
 
 from data_analysis.data_loader import load_training_set, load_validation_set
-from model.classifier import PCLClassifier
+from debertaModel.classifier import PCLClassifier
 
 # --- config ---
 EPOCHS     = 5

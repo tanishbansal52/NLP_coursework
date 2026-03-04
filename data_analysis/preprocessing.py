@@ -1,11 +1,27 @@
 import re
 import json
 import hashlib
+import html
 from pathlib import Path
 from nltk import ne_chunk, pos_tag, word_tokenize
 from nltk.tree import Tree
 
 CACHE_DIR = Path("cache")
+
+
+def clean_text(text: str) -> str:
+    """
+    Remove noise from raw article text:
+      1. Decode HTML entities  (&amp; → &,  &lt; → <, etc.)
+      2. Strip HTML tags       (<h>, <br/>, etc.)
+      3. Remove URLs           (http://..., www....)
+      4. Collapse whitespace
+    """
+    text = html.unescape(text)                        # &amp; → &
+    text = re.sub(r"<[^>]+>", " ", text)             # <h> → space
+    text = re.sub(r"http\S+|www\.\S+", "", text)     # remove URLs
+    text = re.sub(r"\s+", " ", text).strip()          # normalise whitespace
+    return text
 
 def _mask_single(text):
     try:

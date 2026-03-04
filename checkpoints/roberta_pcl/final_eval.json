@@ -1,0 +1,6 @@
+{
+  "f1_pcl": 0.5614,
+  "precision_pcl": 0.4974,
+  "recall_pcl": 0.6443,
+  "f1_macro": 0.7612
+}
