@@ -107,7 +107,7 @@ ap = average_precision_score(labels, probs)
 
 fig, ax = plt.subplots(figsize=(6, 4))
 ax.plot(recall_vals, precision_vals, lw=2, color="steelblue",
-        label=f"RoBERTa-offensive (AP={ap:.3f})")
+        label=f"RoBERTa base (AP={ap:.3f})")
 ax.axhline(sum(labels) / len(labels), ls="--", color="grey",
            label=f"Baseline (random) precision={sum(labels)/len(labels):.2f}")
 # mark operating point
