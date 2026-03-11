@@ -2,6 +2,10 @@
 
 Binary text classification on the Dont Patronize Me! dataset.  
 
+# BEST MODEL LINK
+The best model.safetensors file couldn't be uploaded to Git as it was too large, and so it can be found at this link on Google Drive: 
+https://drive.google.com/file/d/1riHJBhAoEJxNVD-G6tOOMBduKTg3BFxk/view?usp=share_link
+
 ## Project Structure
 
 ```
